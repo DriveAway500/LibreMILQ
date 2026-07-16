@@ -6,7 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Fira Code', 'Courier New', Courier, monospace;
-    background: radial-gradient(circle, #0c1020 0%, #05070f 100%);
+    background: radial-gradient(circle, #000000 0%, #000000 100%);
     color: #00ff66;
     overflow: hidden;
 }
