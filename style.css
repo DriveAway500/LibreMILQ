@@ -19,7 +19,7 @@ body {
     height: 100vh;
     
 
-    background-image: url('none.gif'); 
+    background-image: url('static.gif'); 
     background-size: cover;
     background-position: center;
     
@@ -46,15 +46,11 @@ body {
     font-weight: bold;
     letter-spacing: 3px;
     margin: 0;
-    color: #00ff66; /* Cor base verde neon */
+    color: #00ff66;
     
-    /* Camadas de sombra ajustadas para efeito cyberpunk nítido */
     text-shadow: 
-        /* Camada 1: Brilho interno/borda nítida (verde puro) */
         0 0 4px rgba(0, 255, 102, 0.9),
-        /* Camada 2: Brilho médio (verde-água para profundidade) */
         0 0 10px rgba(0, 255, 204, 0.5),
-        /* Camada 3: Glow difuso externo (verde puro, opacidade baixa) */
         0 0 20px rgba(0, 255, 102, 0.2);
 
     animation: titleGlow 3s ease-in-out infinite;
@@ -68,7 +64,6 @@ body {
             0 0 20px rgba(0, 255, 102, 0.2);
     }
     50% {
-        /* No pico da animação, aumentamos levemente o glow difuso */
         text-shadow: 
             0 0 5px rgba(0, 255, 102, 1),
             0 0 15px rgba(0, 255, 204, 0.6),
