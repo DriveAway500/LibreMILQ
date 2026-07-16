@@ -6,7 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Fira Code', 'Courier New', Courier, monospace;
-    background: radial-gradient(circle, #000000 0%, #000000 100%);
+    background: #000000; /* Preto absoluto */
     color: #00ff66;
     overflow: hidden;
 }
@@ -76,10 +76,10 @@ body {
     width: 100%;
     max-width: 650px;
     height: 230px; 
-    background: rgba(0, 0, 0, 0.9);
+    background: #000000; /* Preto absoluto */
     border-radius: 8px;
     border: 1px solid rgba(0, 255, 102, 0.25);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 15px rgba(0, 255, 102, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 255, 102, 0.05);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -129,6 +129,9 @@ body {
     overflow-y: auto; 
     scrollbar-width: none; 
     scroll-behavior: smooth; 
+    
+    /* Brilho neon sutil nas letras verdes padrão do terminal */
+    text-shadow: 0 0 4px rgba(0, 255, 102, 0.45);
 }
 
 .terminal-body::-webkit-scrollbar {
@@ -137,6 +140,8 @@ body {
 
 .system-info {
     color: #8c92ac;
+    /* Brilho neon na cor cinza/azulada */
+    text-shadow: 0 0 4px rgba(140, 146, 172, 0.4);
 }
 
 .input-line {
@@ -149,6 +154,8 @@ body {
     color: #00ffcc;
     font-weight: bold;
     white-space: nowrap;
+    /* Brilho neon na cor ciano */
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
 }
 
 .input-wrapper {
@@ -159,6 +166,8 @@ body {
     color: #00ff66;
     font-weight: bold;
     animation: blink 1s step-start infinite;
+    /* Brilho neon forte no cursor verde */
+    text-shadow: 0 0 6px rgba(0, 255, 102, 0.75);
 }
 
 @keyframes blink {
