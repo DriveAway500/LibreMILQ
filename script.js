@@ -7,7 +7,6 @@
     const screenEl = document.getElementById("terminal-screen");
 
 
-    // Sequência de animações pré-programadas
 
     const SCAN_SEQUENCE = [
 
@@ -64,7 +63,6 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
     ];
 
 
-    // 1. Exibe a resposta linha por linha com um pequeno delay de carregamento
 
     function printResponseLineByLine(lines, container, delay = 150) {
 
@@ -81,7 +79,6 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
 
                    
 
-                    // Cria uma tag pre para manter a formatação de cada linha
 
                     const pre = document.createElement("pre");
 
@@ -100,8 +97,6 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
 
                    
 
-                    // Scroll suave usando requestAnimationFrame para melhor performance
-
                     requestAnimationFrame(() => {
 
                         screenEl.scrollTop = screenEl.scrollHeight;
@@ -115,7 +110,6 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
 
                 } else {
 
-                    // Adiciona uma quebra de linha sutil ao final do bloco de comando
 
                     container.appendChild(document.createElement("br"));
 
@@ -133,11 +127,9 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
     }
 
 
-    // 2. Prepara os blocos de comando e chama o renderizador de linhas
 
     async function printToTerminal(command, response) {
 
-        // Cria a linha que mostra o comando que foi "digitado"
 
         const commandLine = document.createElement("div");
 
@@ -148,7 +140,6 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
         historyEl.appendChild(commandLine);
 
 
-        // Cria o container que vai receber as linhas da resposta
 
         const responseContainer = document.createElement("div");
 
@@ -157,19 +148,16 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
         historyEl.appendChild(responseContainer);
 
 
-        // Quebra a resposta em um array de linhas
 
         const lines = response.split("\n");
 
 
-        // Executa o efeito visual de carregar linha por linha e aguarda concluir
 
-        await printResponseLineByLine(lines, responseContainer, 200); // 200ms entre cada linha
+        await printResponseLineByLine(lines, responseContainer, 200); 
 
     }
 
 
-    // 3. Simula a digitação caractere por caractere
 
     function simulateTyping(text, delay = 80) {
 
@@ -202,7 +190,6 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
     }
 
 
-    // 4. Controla o ciclo de animações
 
     async function runSecurityMonitor() {
 
@@ -213,14 +200,12 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
 
             for (const step of SCAN_SEQUENCE) {
 
-                // Digita o comando
 
                 await simulateTyping(step.command, 70);
 
                 await new Promise(r => setTimeout(r, 600));
 
 
-                // Limpa a digitação e começa a cuspir o resultado linha por linha
 
                 fakeInputEl.textContent = "";
 
@@ -228,14 +213,12 @@ Jul 16 11:47:31 libremilq kernel: [Security] Intrusion prevention triggered on i
 
                
 
-                // Espera um tempo de leitura antes do próximo comando
 
                 await new Promise(r => setTimeout(r, 2000));
 
             }
 
 
-            // Animação final de limpeza de tela para reiniciar o ciclo
 
             await simulateTyping("clear", 100);
 

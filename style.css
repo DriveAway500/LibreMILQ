@@ -11,7 +11,6 @@ body {
     overflow: hidden;
 }
 
-/* ===== CAMADA DO GIF DE INTERFERÊNCIA ===== */
 .glitch-overlay {
     position: fixed;
     top: 0;
@@ -19,25 +18,20 @@ body {
     width: 100vw;
     height: 100vh;
     
-    /* Substitua pelo nome/caminho correto do seu arquivo GIF */
+
     background-image: url('static.gif'); 
     background-size: cover;
     background-position: center;
     
-    /* Opacidade controlada (0.05 a 0.08 costuma ser o ideal para não incomodar) */
     opacity: 0.05; 
     
-    /* Evita bloquear cliques nos elementos e botões de trás */
     pointer-events: none; 
     
-    /* Mantém no topo absoluto da pilha visual */
     z-index: 9999; 
     
-    /* Mescla os pontos claros do GIF mantendo o fundo do site visível */
     mix-blend-mode: screen; 
 }
 
-/* ===== CONTAINER PRINCIPAL ===== */
 .main-container {
     display: flex;
     flex-direction: column;
@@ -47,7 +41,6 @@ body {
     height: 100vh;
 }
 
-/* ===== TÍTULO LIBREMILQ COM EFEITO CYBERPUNK ===== */
 .title-libremilq {
     font-size: 48px;
     font-weight: bold;
@@ -82,7 +75,7 @@ body {
     }
 }
 
-/* ===== JANELA TERMINAL ===== */
+
 .terminal-window {
     width: 100%;
     max-width: 650px;
@@ -206,7 +199,6 @@ pre {
     transition: opacity 0.3s ease-out;
 }
 
-/* ===== BOTÃO JOIN ===== */
 .join-button {
     display: inline-block;
     padding: 12px 28px;
