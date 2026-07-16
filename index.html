@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibreMILQ</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glitch-overlay"></div>
+
+    <div class="main-container">
+        <h1 class="title-libremilq">LIBREMILQ</h1>
+
+        <div class="container terminal-window">
+            <div class="terminal-header">
+                <div class="buttons">
+                    <span class="button close"></span>
+                    <span class="button minimize"></span>
+                    <span class="button maximize"></span>
+                </div>
+                <div class="title">guest@libremilq: ~</div>
+            </div>
+
+            <div class="terminal-body" id="terminal-screen">
+                <div class="system-info">
+                    <p>Welcome to LibreMILQ OS v1.0.4 (kernel 6.12.1-arch1-1)</p>
+                    <p>* Security status: SECURE</p>
+                    <p>* System monitoring mode active.</p>
+                    <br>
+                </div>
+
+                <div id="terminal-history"></div>
+
+                <div class="input-line">
+                    <span class="prompt">guest@libremilq:~$</span>
+                    <div class="input-wrapper">
+                        <span id="fake-input"></span><span class="cursor">_</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <a href="https://discord.gg/9mugHKdsz8" class="join-button">join</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
