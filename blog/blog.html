@@ -3,18 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LibreMILQ - Posts</title>
-    
-    <!-- Conversor de Markdown -->
+
+    <title>LibreMILQ - Blog</title>
+
+    <!-- SEO -->
+    <meta name="description" content="Articles about programming, Linux, cybersecurity and projects.">
+    <meta name="theme-color" content="#00ff88">
+
+    <!-- Open Graph (Discord/Facebook/etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="LibreMILQ">
+    <meta property="og:title" content="LibreMILQ Blog">
+    <meta property="og:description" content="Articles about programming, Linux, cybersecurity and projects.">
+    <meta property="og:url" content="https://driveaway500.github.io/LibreMILQ/blog/blog.html">
+    <meta property="og:image" content="https://driveaway500.github.io/LibreMILQ/preview.png">
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LibreMILQ Blog">
+    <meta name="twitter:description" content="Articles about programming, Linux, cybersecurity and projects.">
+    <meta name="twitter:image" content="https://driveaway500.github.io/LibreMILQ/preview.png">
+
+    <!-- Favicon -->
+    <link rel="icon" href="../favicon.ico">
+
+    <!-- Markdown -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    
-    <!-- Referência direta (mesma pasta) -->
+
+    <!-- CSS -->
     <link rel="stylesheet" href="./blog.css">
 </head>
 <body>
 
-    <!-- Sobe um nível para voltar ao terminal na raiz -->
-    <a href="../index.html" class="voltar" id="link-voltar">← Back to terminal</a>
+    <a href="../index.html" class="voltar" id="link-voltar">
+        ← Back to terminal
+    </a>
 
     <div class="container" id="conteudo-principal">
         <p class="loader">Iniciando sistema de leitura...</p>
@@ -22,7 +45,7 @@
 
     <div id="pagination" class="pagination"></div>
 
-    <!-- Referência direta (mesma pasta) -->
     <script src="./blog.js" defer></script>
+
 </body>
 </html>
