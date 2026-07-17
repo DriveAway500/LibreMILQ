@@ -10,7 +10,10 @@
     <div class="glitch-overlay"></div>
 
     <div class="main-container">
-        <h1 class="title-libremilq">LIBREMILQ</h1>
+        <!-- Envolvido em uma tag de link para garantir comportamento nativo e acessibilidade -->
+        <a href="blog/blog.html" style="text-decoration: none; color: inherit;">
+            <h1 class="title-libremilq" id="btn-libremilq-posts" style="cursor: pointer; user-select: none;">LIBREMILQ</h1>
+        </a>
 
         <div class="container terminal-window">
             <div class="terminal-header">
@@ -19,7 +22,7 @@
                     <span class="button minimize"></span>
                     <span class="button maximize"></span>
                 </div>
-                <div class="title">guest@libremilq: ~</div>
+                <div class="title" id="terminal-title">guest@libremilq: ~</div>
             </div>
 
             <div class="terminal-body" id="terminal-screen">
@@ -44,6 +47,7 @@
         <a href="https://discord.gg/9mugHKdsz8" class="join-button">join</a>
     </div>
 
+    <!-- O seu script original do terminal continua aqui -->
     <script src="script.js"></script>
 </body>
 </html>
