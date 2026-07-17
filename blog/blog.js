@@ -11,11 +11,22 @@ const linkVoltar = document.getElementById('link-voltar');
 window.carregarListaDePosts = carregarListaDePosts;
 window.carregarArtigo = carregarArtigo;
 
+// Verifica se há um post específico na URL ao abrir a página
 document.addEventListener('DOMContentLoaded', () => {
-    carregarListaDePosts();
+    const parametros = new URLSearchParams(window.location.search);
+    const postParaCarregar = parametros.get('post');
+
+    if (postParaCarregar) {
+        carregarArtigo(postParaCarregar);
+    } else {
+        carregarListaDePosts();
+    }
 });
 
 async function carregarListaDePosts() {
+    // Limpa o parâmetro da URL de forma limpa ao voltar para a listagem
+    window.history.pushState({}, '', window.location.pathname);
+
     linkVoltar.href = construirUrl('../index.html');
     linkVoltar.textContent = '← Home';
     linkVoltar.onclick = null; 
@@ -84,6 +95,10 @@ async function carregarListaDePosts() {
 async function carregarArtigo(nomeArquivo) {
     container.innerHTML = '<p class="loader">Carregando conteúdo do documento...</p>';
     
+    // Altera a URL no navegador incluindo "?post=nome-do-post.md" sem dar reload
+    const novaURL = `${window.location.pathname}?post=${nomeArquivo}`;
+    window.history.pushState({}, '', novaURL);
+
     linkVoltar.href = '#';
     linkVoltar.textContent = '← Posts';
     linkVoltar.onclick = (e) => {
@@ -137,7 +152,7 @@ function extrairMetadados(texto, nomeArquivo) {
             const cabecalho = partes[1];
             const linhas = cabecalho.split('\n');
             linhas.forEach(linha => {
-                const [chave, ...valorPartes] = linha.split(':');
+                const [chave, ...valorPartes] = App = linha.split(':');
                 if (chave && valorPartes.length > 0) {
                     const valor = valorPartes.join(':').trim();
                     if (chave.trim().toLowerCase() === 'title') titulo = valor;
