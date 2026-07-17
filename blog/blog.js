@@ -24,8 +24,9 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function carregarListaDePosts() {
-    // Limpa o parâmetro da URL de forma limpa ao voltar para a listagem
-    window.history.pushState({}, '', window.location.pathname);
+    // CORREÇÃO GITHUB PAGES: Limpa apenas os parâmetros de busca preservando todo o caminho do repositório
+    const urlLimpa = window.location.href.split('?')[0];
+    window.history.pushState({}, '', urlLimpa);
 
     linkVoltar.href = construirUrl('../index.html');
     linkVoltar.textContent = '← Home';
@@ -65,7 +66,6 @@ async function carregarListaDePosts() {
                 const texto = await resPost.text();
                 const metadados = extrairMetadados(texto, nomeArquivo);
 
-                // O título do documento agora é o próprio link de ação
                 tabelaHTML += `
                     <tr>
                         <td>
@@ -95,8 +95,9 @@ async function carregarListaDePosts() {
 async function carregarArtigo(nomeArquivo) {
     container.innerHTML = '<p class="loader">Carregando conteúdo do documento...</p>';
     
-    // Altera a URL no navegador incluindo "?post=nome-do-post.md" sem dar reload
-    const novaURL = `${window.location.pathname}?post=${nomeArquivo}`;
+    // CORREÇÃO GITHUB PAGES: Atualiza os parâmetros sem perder o subdiretório do repositório
+    const urlBase = window.location.href.split('?')[0];
+    const novaURL = `${urlBase}?post=${encodeURIComponent(nomeArquivo)}`;
     window.history.pushState({}, '', novaURL);
 
     linkVoltar.href = '#';
@@ -152,7 +153,7 @@ function extrairMetadados(texto, nomeArquivo) {
             const cabecalho = partes[1];
             const linhas = cabecalho.split('\n');
             linhas.forEach(linha => {
-                const [chave, ...valorPartes] = App = linha.split(':');
+                const [chave, ...valorPartes] = linha.split(':');
                 if (chave && valorPartes.length > 0) {
                     const valor = valorPartes.join(':').trim();
                     if (chave.trim().toLowerCase() === 'title') titulo = valor;
