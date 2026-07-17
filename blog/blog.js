@@ -1,6 +1,10 @@
 // Sem subir nível, pois posts/ está na mesma pasta que o blog.html e blog.js
 const PASTA_POSTS = 'posts/';
 
+function construirUrl(relativa) {
+    return new URL(relativa, window.location.href).href;
+}
+
 const container = document.getElementById('conteudo-principal');
 const linkVoltar = document.getElementById('link-voltar');
 
@@ -12,15 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function carregarListaDePosts() {
-    // Sobe um nível para achar o index.html na raiz do repositório
-    linkVoltar.href = '../index.html';
+    linkVoltar.href = construirUrl('../index.html');
     linkVoltar.textContent = '← Home';
     linkVoltar.onclick = null; 
 
     container.innerHTML = '<p class="loader">Carregando lista de documentos...</p>';
 
     try {
-        const resposta = await fetch(`${PASTA_POSTS}posts.json`);
+        const resposta = await fetch(construirUrl(`${PASTA_POSTS}posts.json`));
         if (!resposta.ok) throw new Error('Não foi possível ler o arquivo posts.json');
         const nomesArquivos = await resposta.json();
 
@@ -43,7 +46,7 @@ async function carregarListaDePosts() {
         `;
 
         for (const nomeArquivo of nomesArquivos) {
-            const caminhoCompleto = `${PASTA_POSTS}${nomeArquivo}`;
+            const caminhoCompleto = construirUrl(`${PASTA_POSTS}${nomeArquivo}`);
             try {
                 const resPost = await fetch(caminhoCompleto);
                 if (!resPost.ok) continue;
@@ -88,7 +91,7 @@ async function carregarArtigo(nomeArquivo) {
         carregarListaDePosts();
     };
 
-    const caminhoCompleto = `${PASTA_POSTS}${nomeArquivo}`;
+    const caminhoCompleto = construirUrl(`${PASTA_POSTS}${nomeArquivo}`);
 
     try {
         const resposta = await fetch(caminhoCompleto);
